@@ -66,5 +66,5 @@ kubectl rsh foo cat /etc/resolv.conf
 kubectl rsh deployment/docker-registry cat config.yml
 
 # Open a shell session on the container named 'index' inside a pod of your job
-kubectl rsh -c index job/sheduled
+kubectl rsh -c index job/scheduled
 ```
