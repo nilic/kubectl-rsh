@@ -52,19 +52,19 @@ A TTY will be automatically allocated if standard input is interactive - use `-t
 ## Examples
 
 ```
-  # Open a shell session on the first container in pod 'foo'
-  kubectl rsh foo
+# Open a shell session on the first container in pod 'foo'
+kubectl rsh foo
 
-  # Open a shell session on the first container in pod 'foo' and namespace 'bar'
-  # (Note that kubectl client specific arguments must come before the resource name and its arguments)
-  kubectl rsh -n bar foo
+# Open a shell session on the first container in pod 'foo' and namespace 'bar'
+# (Note that kubectl client specific arguments must come before the resource name and its arguments)
+kubectl rsh -n bar foo
 
-  # Run the command 'cat /etc/resolv.conf' inside pod 'foo'
-  kubectl rsh foo cat /etc/resolv.conf
+# Run the command 'cat /etc/resolv.conf' inside pod 'foo'
+kubectl rsh foo cat /etc/resolv.conf
 
-  # See the configuration of your internal registry
-  kubectl rsh deployment/docker-registry cat config.yml
+# See the configuration of your internal registry
+kubectl rsh deployment/docker-registry cat config.yml
 
-  # Open a shell session on the container named 'index' inside a pod of your job
-  kubectl rsh -c index job/sheduled
+# Open a shell session on the container named 'index' inside a pod of your job
+kubectl rsh -c index job/sheduled
 ```
