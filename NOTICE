@@ -1,0 +1,9 @@
+kubectl-rsh
+Copyright Nebojsa Ilic
+kubectl-rsh is licensed under Apache 2.0 license.
+Copy of the Apache 2.0 license can be found in `LICENSE` file.
+
+oc
+Copyright 2014 Red Hat, Inc.
+File cmd/rsh.go (the file) was originally created under Apache 2.0 license in https://github.com/openshift/oc repository.
+The file has been copied into this project and modified. All modifications are licensed under Apache 2.0 License.
