@@ -5,8 +5,6 @@ This is a port of the `oc rsh` command from [OpenShift Client](https://github.co
 
 ## Installation
 
-### Manual
-
 Just download the binary for your OS and architecture from the [Releases](https://github.com/nilic/kubectl-rsh/releases) page and place it in your `PATH`.
 
 ## Usage
@@ -45,7 +43,7 @@ Flags:
   -v, --version                        Print version information
 ```
 
-This command will attempt to start a shell session in a pod for the specified resource. It works with pods, deployments, jobs, daemon sets, replication controllers and replica sets. Any of the aforementioned resources (apart from pods) will be resolved to a ready pod. It will default to the first container if none is specified, and will attempt to use '/bin/sh' as the default shell. You may pass any flags supported by this command before the resource name, and an optional command after the resource name, which will be executed instead of a login shell. 
+This command will attempt to start a shell session in a pod for the specified resource. It works with pods, deployments, jobs, daemon sets, replication controllers and replica sets. Any of the aforementioned resources (apart from pods) will be resolved to a ready pod. It will default to the first container if none is specified, and will attempt to use `/bin/sh` as the default shell. You may pass any flags supported by this command before the resource name, and an optional command after the resource name, which will be executed instead of a login shell. 
 
 A TTY will be automatically allocated if standard input is interactive - use `-t` and `-T` to override. A `TERM` variable is sent to the environment where the shell (or command) will be executed. By default its value is the same as the `TERM` variable from the local environment; if not set, `xterm` is used.
 
