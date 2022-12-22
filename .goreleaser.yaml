@@ -19,6 +19,9 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
+    files:
+      - LICENSE
+      - NOTICE
 checksum:
   name_template: "{{ .ProjectName }}_{{ .Tag }}_sha256_checksums.txt"
   algorithm: sha256
