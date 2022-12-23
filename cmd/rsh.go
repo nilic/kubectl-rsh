@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"flag"
 	"fmt"
 	"os"
 	"time"
@@ -127,14 +126,6 @@ func NewCmdRsh(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.C
 	//    without below the above example will fail, cobra will try to parse -vlDtpre.iLsfxC
 	//    and will fail because it won't be able to convert that into int.
 	cmd.Flags().SetInterspersed(false)
-
-	flags := cmd.PersistentFlags()
-	kubeConfigFlags := genericclioptions.NewConfigFlags(true).WithDiscoveryBurst(350).WithDiscoveryQPS(50.0)
-	kubeConfigFlags.AddFlags(flags)
-	matchVersionKubeConfigFlags := kcmdutil.NewMatchVersionFlags(kubeConfigFlags)
-	matchVersionKubeConfigFlags.AddFlags(cmd.PersistentFlags())
-	cmd.PersistentFlags().AddGoFlagSet(flag.CommandLine)
-	f = kcmdutil.NewFactory(matchVersionKubeConfigFlags)
 
 	return cmd
 }
