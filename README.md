@@ -1,5 +1,9 @@
 # kubectl rsh 🐚
-A [kubectl plugin](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/) for opening a remote shell session to a container running in a Kubernetes cluster.
+A [kubectl plugin](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/) for opening a remote shell session to a container running in a Kubernetes cluster. Can also be used for executing a one-time command in a container. 
+
+So like `kubectl exec` but with a simpler, "--"less syntax:
+* `kubectl exec --stdin --tty mypod -- /bin/sh` -> `kubectl rsh mypod`
+* `kubectl exec mypod -- ls /` -> `kubectl rsh mypod ls /`
 
 This is a port of the `oc rsh` command from [OpenShift Client](https://github.com/openshift/oc) to a standalone binary, so all credits go to `oc` maintainers. Licensing and modification information is available in the [NOTICE](NOTICE) file.
 
@@ -43,7 +47,9 @@ Flags:
   -v, --version                        Print version information
 ```
 
-This command will attempt to start a shell session in a pod for the specified resource. It works with pods, deployments, jobs, daemon sets, replication controllers and replica sets. Any of the aforementioned resources (apart from pods) will be resolved to a ready pod. It will default to the first container if none is specified, and will attempt to use `/bin/sh` as the default shell. You may pass any flags supported by this command before the resource name, and an optional command after the resource name, which will be executed instead of a login shell. 
+This command will attempt to start a shell session in a pod for the specified resource. It works with pods, deployments, jobs, daemon sets, replication controllers and replica sets. Any of the aforementioned resources (apart from pods) will be resolved to a ready pod. 
+
+It will default to the first container if none is specified, and will attempt to use `/bin/sh` as the default shell. You may pass any flags supported by this command before the resource name, and an optional command after the resource name, which will be executed instead of a login shell. 
 
 A TTY will be automatically allocated if standard input is interactive - use `-t` and `-T` to override. A `TERM` variable is sent to the environment where the shell (or command) will be executed. By default its value is the same as the `TERM` variable from the local environment; if not set, `xterm` is used.
 
