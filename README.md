@@ -1,5 +1,18 @@
 # kubectl rsh 🐚
-A [kubectl plugin](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/) for opening a remote shell session to a container running in a Kubernetes cluster. Can also be used for executing a one-time command in a container. 
+A [kubectl plugin](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/) for opening a remote shell session to a container running in a Kubernetes cluster:
+
+```
+kubectl rsh mypod
+$
+```
+
+Can also be used for executing a one-time command in a container:
+
+```
+kubectl rsh mypod ls /
+app  boot  etc   lib    lib64   media  opt   root  sbin  sys  usr
+bin  dev   home  lib32  libx32  mnt    proc  run   srv   tmp  var
+```
 
 This is a port of the `oc rsh` command from [OpenShift Client](https://github.com/openshift/oc) to a standalone binary, so all credits go to `oc` maintainers. Licensing and modification information is available in the [NOTICE](NOTICE) file.
 
