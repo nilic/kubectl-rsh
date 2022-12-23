@@ -16,5 +16,10 @@ func main() {
 	matchVersionKubeConfigFlags := kcmdutil.NewMatchVersionFlags(kubeConfigFlags)
 	f := kcmdutil.NewFactory(matchVersionKubeConfigFlags)
 	ioStreams := genericclioptions.IOStreams{In: os.Stdin, Out: os.Stdout, ErrOut: os.Stderr}
-	cmd.NewCmdRsh(f, ioStreams).Execute()
+	cmdRsh := cmd.NewCmdRsh(f, ioStreams)
+
+	kubeConfigFlags.AddFlags(cmdRsh.PersistentFlags())
+	matchVersionKubeConfigFlags.AddFlags(cmdRsh.PersistentFlags())
+
+	cmdRsh.Execute()
 }
