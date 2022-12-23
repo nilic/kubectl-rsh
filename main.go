@@ -18,8 +18,7 @@ func main() {
 	ioStreams := genericclioptions.IOStreams{In: os.Stdin, Out: os.Stdout, ErrOut: os.Stderr}
 	cmdRsh := cmd.NewCmdRsh(f, ioStreams)
 
-	flags := cmdRsh.PersistentFlags()
-	kubeConfigFlags.AddFlags(flags)
+	kubeConfigFlags.AddFlags(cmdRsh.PersistentFlags())
 	matchVersionKubeConfigFlags.AddFlags(cmdRsh.PersistentFlags())
 
 	cmdRsh.Execute()
